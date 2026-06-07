@@ -1,0 +1,23 @@
+# Secrets and credentials
+.env
+*.token
+auth.json
+gateway_*.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Cron output
+output/

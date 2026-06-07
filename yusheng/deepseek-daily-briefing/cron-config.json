@@ -1,0 +1,12 @@
+{
+  "name": "DeepSeek 每日用量简报",
+  "description": "每日 09:00 自动推送 DeepSeek API 余额和用量监控简报",
+  "schedule": "0 9 * * *",
+  "repeat": "forever",
+  "deliver": "feishu",
+  "script": "deepseek_daily_briefing.py",
+  "no_agent": true,
+  "workdir": "$HOME/.hermes",
+  "prompt": "",
+  "description_full": "使用 Python 脚本（no_agent 模式）直接获取 DeepSeek 平台数据并格式化为 Markdown 报告。脚本原理：\n1. 调用 /v1/user/balance（API Key 认证）获取余额\n2. 调用 /api/v0/users/get_user_summary（Platform Token）获取月总览\n3. 调用 /api/v0/usage/cost 获取昨日和今日的按模型细分花费\n4. 输出格式化 Markdown 报告"
+}

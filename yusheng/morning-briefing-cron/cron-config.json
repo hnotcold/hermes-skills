@@ -1,0 +1,11 @@
+{
+  "name": "晨间简报 - 飞书",
+  "description": "每日 08:55 自动推送晨间简报（新闻、天气、股票）",
+  "schedule": "55 8 * * *",
+  "repeat": "forever",
+  "deliver": "feishu",
+  "trigger": {
+    "skill": "morning-briefing-cron"
+  },
+  "prompt": "🌅 执行晨间简报任务\n\n## 📋 任务流程\n\n### 1. 读取节假日配置\n读取 `~/.hermes/workspace/memory/milestones/china-holidays-2026.json` 判断今日是否为工作日\n\n### 2. 聚合新闻\n- **国内新闻:** browser_navigate → news.baidu.com，读取热点要闻和热搜新闻词\n- **国际新闻:** browser_navigate → news.sina.com.cn/world/\n- 提取 15-20 条头条\n\n### 3. 获取天气\n- 南京: browser_navigate → https://wttr.in/Nanjing?format=3\n- 北京: browser_navigate → https://wttr.in/Beijing?format=3\n\n### 4. 获取股票行情\n- 美股 (BABA, JD, PDD, AAPL, MSFT, GOOGL, AMZN, META, NVDA): Sina Finance API\n- 港股 (0700.HK, 3690.HK): Sina Finance API\n- 输出表格格式（公司名、收盘价、涨跌幅）\n\n### 5. 格式化输出\n- 标题: 🌅 晨间简报 | 日期 星期 [工作日/休息日]\n- 国内热点 Top 10\n- 国际热点 Top 10\n- 📈 科技股行情表格\n- 🌤️ 天气 + 💡 出行建议"
+}
